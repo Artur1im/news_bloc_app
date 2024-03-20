@@ -1,9 +1,9 @@
 class NewsModel {
-  String author;
+  String? author;
   String title;
-  String description;
-  String url;
-  String urlToImage;
+  String? description;
+  String? url;
+  String? urlToImage;
   String publishedAt;
   String content;
 
@@ -15,6 +15,7 @@ class NewsModel {
         urlToImage = data['urlToImage'],
         publishedAt = data['publishedAt'],
         content = data['content'];
+
   static List<NewsModel> fromJsonToList(Map<String, dynamic> data) {
     List<NewsModel> response = [];
     for (Map<String, dynamic> item in data['articles']) {

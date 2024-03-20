@@ -39,7 +39,11 @@ class _HomePageState extends State<HomePage> {
                 itemCount: newsBloc.newsModel.length,
                 itemBuilder: (context, index) {
                   final user = state.newsModel[index];
-                  return Card();
+                  return Card(
+                    child: Column(
+                      children: [],
+                    ),
+                  );
                 },
               ));
             } else {

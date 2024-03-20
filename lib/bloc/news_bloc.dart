@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:news_bloc_app/api/news_api.dart';
@@ -36,13 +35,21 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
   FutureOr<void> _requestAndAddNews() async {
     newsModel.clear;
 
-    List<NewsModel> list = await NewsApi().newsModel(count: 100);
+    List<NewsModel> list = await NewsApi().newsModel(
+      count: 100,
+      page: 1,
+      query: 'Kazakhstan',
+    );
 
     newsModel.addAll(list);
   }
 
   FutureOr<void> _requestFetchMore() async {
-    List<NewsModel> list = await NewsApi().newsModel(count: 100);
+    List<NewsModel> list = await NewsApi().newsModel(
+      count: 100,
+      page: 1,
+      query: 'Kazakhstan',
+    );
 
     newsModel.addAll(list);
   }
