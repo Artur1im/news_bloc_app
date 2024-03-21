@@ -18,6 +18,7 @@ class CustomCard extends StatelessWidget {
                 )),
       ),
       child: Card(
+        color: Color.fromRGBO(249, 249, 249, 1),
         child: SizedBox(
           child: Container(
             padding: const EdgeInsets.only(left: 10, right: 10),
