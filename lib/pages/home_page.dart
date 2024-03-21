@@ -1,59 +1,68 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_bloc_app/bloc/news_bloc.dart';
+import 'package:news_bloc_app/model/news_model.dart';
+import 'package:news_bloc_app/widgets/custom_card.dart';
+import 'package:news_bloc_app/widgets/data.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  final NewsBloc newsBloc = NewsBloc();
+  final NewsBloc _newsBloc = NewsBloc();
 
   @override
   void initState() {
-    newsBloc.add(NewsListFetchInitial());
+    _newsBloc.add(NewsListFetchInitial());
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SizedBox(
-      child: SingleChildScrollView(
-        child: BlocBuilder<NewsBloc, NewsState>(
-          bloc: newsBloc,
-          builder: (context, state) {
-            if (state is NewsFetchingLoadingState) {
-              return const Center(
-                child: CircularProgressIndicator(
-                  color: Colors.white,
-                ),
-              );
-            } else if (state is NewsFetchingSuccessfulState) {
-              return SizedBox(
-                  child: ListView.builder(
-                itemCount: newsBloc.newsModel.length,
-                itemBuilder: (context, index) {
-                  final user = state.newsModel[index];
-                  return Card(
-                    child: Column(
-                      children: [],
-                    ),
-                  );
-                },
-              ));
-            } else {
-              return const Center(
-                child: Text("Error"),
-              );
-            }
-          },
-        ),
+      body: BlocBuilder<NewsBloc, NewsState>(
+        bloc: _newsBloc,
+        builder: (context, state) {
+          if (state is NewsFetchingLoadingState) {
+            return const Center(
+              child: CircularProgressIndicator(
+                color: Colors.white,
+              ),
+            );
+          } else if (state is NewsFetchingSuccessfulState) {
+            return ListView.builder(
+              itemCount: state.newsModel.length,
+              itemBuilder: (context, index) {
+                final NewsModel newsModel = state.newsModel[index];
+                final Data data = Data(
+                  author: newsModel.author,
+                  title: newsModel.title,
+                  description: newsModel.description,
+                  url: newsModel.url,
+                  urlToImage: newsModel.urlToImage,
+                  publishedAt: newsModel.publishedAt,
+                  content: newsModel.content,
+                );
+                return CustomCard(data: data);
+              },
+            );
+          } else {
+            return const Center(
+              child: Text("Error"),
+            );
+          }
+        },
       ),
-    ));
+    );
+  }
+
+  @override
+  void dispose() {
+    _newsBloc.close();
+    super.dispose();
   }
 }
