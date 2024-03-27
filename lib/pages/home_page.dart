@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_bloc_app/bloc/news_bloc.dart';
 import 'package:news_bloc_app/model/news_model.dart';
+import 'package:news_bloc_app/pages/3d.dart';
 import 'package:news_bloc_app/widgets/custom_card.dart';
 import 'package:news_bloc_app/widgets/data.dart';
 
@@ -57,6 +58,14 @@ class _HomePageState extends State<HomePage> {
           }
         },
       ),
+      floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.watch),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => WebViewExample()),
+            );
+          }),
     );
   }
 
