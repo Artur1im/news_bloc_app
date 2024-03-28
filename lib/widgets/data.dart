@@ -1,6 +1,6 @@
 class Data {
   String? author;
-  String title;
+  String? title;
   String? description;
   String? url;
   String? urlToImage;

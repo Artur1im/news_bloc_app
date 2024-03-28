@@ -18,7 +18,7 @@ class CustomCard extends StatelessWidget {
                 )),
       ),
       child: Card(
-        color: Color.fromRGBO(249, 249, 249, 1),
+        color: const Color.fromRGBO(249, 249, 249, 1),
         child: SizedBox(
           child: Container(
             padding: const EdgeInsets.only(left: 10, right: 10),
@@ -45,7 +45,7 @@ class CustomCard extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          data.title ?? 'No title',
+                          data.title ?? '',
                           style: const TextStyle(fontSize: 17),
                           maxLines: 3,
                         ),
@@ -54,7 +54,7 @@ class CustomCard extends StatelessWidget {
                           style: const TextStyle(fontSize: 17),
                           maxLines: 1,
                         ),
-                        SizedBox(height: 10)
+                        const SizedBox(height: 10)
                       ],
                     ),
                   ),

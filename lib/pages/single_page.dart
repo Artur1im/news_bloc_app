@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:news_bloc_app/widgets/data.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -17,7 +18,7 @@ class _SinglePageState extends State<SinglePage> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          widget.data.author ?? "no author",
+          widget.data.author ?? "No author",
           maxLines: 1,
         ),
       ),
@@ -30,10 +31,14 @@ class _SinglePageState extends State<SinglePage> {
             child: Column(
               children: [
                 Text(
-                  widget.data.title,
+                  widget.data.title ?? 'No title',
                   textAlign: TextAlign.center,
                   style: const TextStyle(fontSize: 18),
-                ),
+                )
+                    .animate()
+                    .fadeIn(duration: 600.ms)
+                    .then(delay: 200.ms) // baseline=800ms
+                    .slide(),
                 const SizedBox(height: 10),
                 Container(
                     padding: const EdgeInsets.all(5),
@@ -61,7 +66,10 @@ class _SinglePageState extends State<SinglePage> {
                         widget.data.content,
                         textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 18),
-                      ),
+                      )
+                          .animate()
+                          .fade(duration: 500.ms)
+                          .scale(delay: 500.ms), // ru,
                       const SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
