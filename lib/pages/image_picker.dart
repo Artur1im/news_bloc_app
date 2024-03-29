@@ -1,10 +1,8 @@
 import 'dart:io';
 import 'dart:typed_data';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:http/http.dart';
 import 'package:image_picker/image_picker.dart';
 
 class PickImage extends StatefulWidget {
@@ -29,15 +27,19 @@ class _PickImageState extends State<PickImage> {
                 : const CircleAvatar(
                     radius: 100,
                     backgroundImage: NetworkImage(
-                        "https://n1s1.hsmedia.ru/4b/13/6c/4b136c40215cc9556f5ff0c523948f90/728x728_1_e2e7e32b78a1b8baec36c0e7e9eb404f@793x793_0xcKhLGKo7_1953364910870965161.jpg"),
+                        "https://as2.ftcdn.net/v2/jpg/03/59/58/91/1000_F_359589186_JDLl8dIWoBNf1iqEkHxhUeeOulx0wOC5.jpg"),
                   ),
             Positioned(
+                top: 120,
                 left: 140,
                 child: IconButton(
                   onPressed: () {
                     showImagePickerOption(context);
                   },
-                  icon: Icon(Icons.add_a_photo),
+                  icon: const Icon(
+                    Icons.add_a_photo,
+                    size: 40,
+                  ),
                 ))
           ],
         ),
@@ -51,7 +53,7 @@ class _PickImageState extends State<PickImage> {
         context: context,
         builder: (builder) {
           return Padding(
-            padding: const EdgeInsets.all(18.0),
+            padding: const EdgeInsets.only(top: 40),
             child: SizedBox(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height / 4.5,
@@ -62,12 +64,13 @@ class _PickImageState extends State<PickImage> {
                       onTap: () {
                         _pickImageFromGallery();
                       },
-                      child: SizedBox(
+                      child: const SizedBox(
                         child: Column(
                           children: [
                             Icon(
                               Icons.image,
                               size: 40,
+                              color: Colors.black87,
                             ),
                             Text('Gallery')
                           ],
@@ -80,11 +83,12 @@ class _PickImageState extends State<PickImage> {
                       onTap: () {
                         _pickImageFromCamera();
                       },
-                      child: SizedBox(
+                      child: const SizedBox(
                         child: Column(
                           children: [
                             Icon(
                               Icons.camera_alt,
+                              color: Colors.black87,
                               size: 40,
                             ),
                             Text('Camera')
