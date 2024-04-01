@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebViewExample extends StatelessWidget {
+  const WebViewExample({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -4,11 +4,12 @@ import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_not
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:news_bloc_app/pages/3d.dart';
+import 'package:news_bloc_app/pages/auth_game.dart';
 import 'package:news_bloc_app/pages/home_page.dart';
 import 'package:news_bloc_app/pages/image_picker.dart';
 
 class BottomNb extends StatefulWidget {
-  const BottomNb({Key? key}) : super(key: key);
+  const BottomNb({super.key});
 
   @override
   State<BottomNb> createState() => _BottomNbState();
@@ -27,7 +28,11 @@ class _BottomNbState extends State<BottomNb> {
     super.dispose();
   }
 
-  final List<Widget> bottomBarPages = [const HomePage(), const PickImage()];
+  final List<Widget> bottomBarPages = [
+    const HomePage(),
+    const PickImage(),
+    const AuthGaame()
+  ];
 
   bool isDarkMode = false;
 
@@ -129,7 +134,7 @@ class _BottomNbState extends State<BottomNb> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => WebViewExample()),
+              MaterialPageRoute(builder: (context) => const WebViewExample()),
             );
           },
         )

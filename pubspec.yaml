@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   http: ^1.2.1
-  flutter_bloc: ^8.1.4  
+  flutter_bloc: ^8.1.5  
   bloc: ^8.1.4
   provider: ^6.1.2
   cupertino_icons: ^1.0.6
@@ -25,8 +25,10 @@ dependencies:
   delayed_display: ^2.0.0
   animated_notch_bottom_bar: ^1.0.2
   image_picker: ^1.0.7
+  simple_animations: ^5.0.2
 
-
+dependency_overrides:
+  simple_animations: ^5.0.2
 
 dev_dependencies:
   flutter_test:

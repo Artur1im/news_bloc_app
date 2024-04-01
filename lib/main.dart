@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
         providers: [BlocProvider(create: (context) => NewsBloc())],
         child: MaterialApp(
-          home: BottomNb(),
+          home: const BottomNb(),
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

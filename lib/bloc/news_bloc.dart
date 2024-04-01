@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
 import 'package:news_bloc_app/api/news_api.dart';
 import 'package:news_bloc_app/model/news_model.dart';
 
