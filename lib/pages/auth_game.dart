@@ -16,15 +16,18 @@ class _AuthGaameState extends State<AuthGaame> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.black38,
       body: Form(
         key: _fromKey,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'Enter palyer Name',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              'Enter player Name',
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
             ),
             const SizedBox(height: 20),
             Padding(
@@ -43,7 +46,7 @@ class _AuthGaameState extends State<AuthGaame> {
                         borderSide: BorderSide(color: Colors.red)),
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.white)),
-                    hintText: 'Palyer 1 name',
+                    hintText: 'Player 1 name',
                     hintStyle: TextStyle(color: Colors.white)),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -69,7 +72,7 @@ class _AuthGaameState extends State<AuthGaame> {
                         borderSide: BorderSide(color: Colors.red)),
                     enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.white)),
-                    hintText: 'Palyer 1 name',
+                    hintText: 'Player 1 name',
                     hintStyle: TextStyle(color: Colors.white)),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -87,8 +90,9 @@ class _AuthGaameState extends State<AuthGaame> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => GameScreen(
-                              palyer1: player1Controller.text,
-                              palyer2: player2Controller.text)));
+                                player1: player1Controller.text,
+                                player2: player2Controller.text,
+                              )));
                 }
               },
               child: Container(
