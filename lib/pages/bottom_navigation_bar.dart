@@ -7,6 +7,7 @@ import 'package:news_bloc_app/pages/3d.dart';
 import 'package:news_bloc_app/pages/auth_game.dart';
 import 'package:news_bloc_app/pages/home_page.dart';
 import 'package:news_bloc_app/pages/image_picker.dart';
+import 'package:news_bloc_app/pages/video_player.dart';
 
 class BottomNb extends StatefulWidget {
   const BottomNb({super.key});
@@ -31,7 +32,8 @@ class _BottomNbState extends State<BottomNb> {
   final List<Widget> bottomBarPages = [
     const HomePage(),
     const PickImage(),
-    const AuthGaame()
+    const AuthGaame(),
+    MyVideoPlayer()
   ];
 
   bool isDarkMode = false;
@@ -63,44 +65,44 @@ class _BottomNbState extends State<BottomNb> {
                     bottomBarItems: const [
                       BottomBarItem(
                         inActiveItem: Icon(
-                          Icons.person,
+                          Icons.newspaper,
                           color: Colors.blueGrey,
                         ),
                         activeItem: Icon(
-                          Icons.person,
+                          Icons.newspaper,
                           color: Colors.white,
                         ),
                         itemLabel: 'Page 1',
                       ),
                       BottomBarItem(
                         inActiveItem: Icon(
-                          Icons.star_border,
+                          Icons.photo,
                           color: Colors.blueGrey,
                         ),
                         activeItem: Icon(
-                          Icons.star,
+                          Icons.photo,
                           color: Colors.yellowAccent,
                         ),
                         itemLabel: 'Page 2',
                       ),
                       BottomBarItem(
                         inActiveItem: Icon(
-                          Icons.home,
+                          Icons.gamepad_outlined,
                           color: Colors.blueGrey,
                         ),
                         activeItem: Icon(
-                          Icons.home,
+                          Icons.gamepad_outlined,
                           color: Colors.white,
                         ),
                         itemLabel: 'Page 3',
                       ),
                       BottomBarItem(
                         inActiveItem: Icon(
-                          Icons.shopping_bag_rounded,
+                          Icons.video_camera_back_outlined,
                           color: Colors.blueGrey,
                         ),
                         activeItem: Icon(
-                          Icons.shopping_bag_outlined,
+                          Icons.video_camera_back_outlined,
                           color: Colors.white,
                         ),
                         itemLabel: 'Page 5',
@@ -141,7 +143,7 @@ class _BottomNbState extends State<BottomNb> {
             .animate()
             .animate()
             .fadeIn(duration: 600.ms)
-            .then(delay: 200.ms) // baseline=800ms
+            .then(delay: 200.ms)
             .slide(),
       ),
     );

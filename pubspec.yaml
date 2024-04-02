@@ -26,6 +26,8 @@ dependencies:
   animated_notch_bottom_bar: ^1.0.2
   image_picker: ^1.0.7
   simple_animations: ^5.0.2
+  video_player: ^2.8.3
+  flick_video_player: ^0.7.0
 
 dependency_overrides:
   simple_animations: ^5.0.2
